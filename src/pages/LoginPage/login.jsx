@@ -1,5 +1,6 @@
 import React from 'react'
 import './login.css'
+import { BASE_URL } from '@env';
 
 function login({setAdminInfo}) {
 
