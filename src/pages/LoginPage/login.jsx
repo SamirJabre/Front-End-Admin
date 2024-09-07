@@ -1,20 +1,36 @@
-import React from 'react'
+import { useState } from 'react'
 import './login.css'
-import { BASE_URL } from '@env';
+import axios from 'axios';
+
+
 
 function login({setAdminInfo}) {
 
-    const [email,setEmail] = React.useState('')
-    const [password,setPassword] = React.useState('')
+    const [email,setEmail] = useState('')
+    const [password,setPassword] = useState('')
+    const BASE_URL = import.meta.env.VITE_BASE_URL;
 
-    const handleLogin = async () => {
-    await
-    }
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        try {
+          await axios.post(`${BASE_URL}/adminlogin`, {
+            email: email,
+            password: password,
+          }).then((res) => {
+            setAdminInfo(res.data)
+            localStorage.setItem('token',res.data.token)
+            console.log(res.data)
+        });
+          
+        } catch (error) {
+          console.error('Error logging in:', error);
+        }
+      };
 
     return (
         <div className="login-container">
           <h2>Admin Panel Login</h2>
-          <form className="login-form">
+          <form className="login-form" onSubmit={handleLogin}>
             <div className="form-group">
               <label htmlFor="username">Email</label>
               <input type="text" id="email" name="email" required onChange={(e)=>setEmail(e.target.value)}/>
