@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import './login.css'
 import axios from 'axios';
-
+import {useNavigate} from 'react-router-dom'
 
 
 function login({setAdminInfo}) {
+    let navigate = useNavigate();
 
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
@@ -20,6 +21,7 @@ function login({setAdminInfo}) {
             setAdminInfo(res.data)
             localStorage.setItem('token',res.data.token)
             console.log(res.data)
+            navigate('/dashboard')
         });
           
         } catch (error) {
