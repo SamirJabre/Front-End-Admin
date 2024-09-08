@@ -31,7 +31,7 @@ function userpage() {
   };
 
   return (
-    <div className="container">
+    <div className="user-page-container">
     <Navbar/>
         {users.map(user => (
           <div className='userDiv' key={user.id}>

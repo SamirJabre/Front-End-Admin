@@ -1,9 +1,12 @@
 import React from 'react'
 import './trip.css'
+import NavBar from '../../components/NavBar/navbar'
 
 function trip() {
   return (
-    <div>trip</div>
+    <div className='trip-container'>
+    <NavBar/>
+    </div>
   )
 }
 
