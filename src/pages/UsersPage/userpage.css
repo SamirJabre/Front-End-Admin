@@ -15,41 +15,20 @@
 .userDiv{
     cursor: pointer;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     margin: 10px;
-    width: 90%;
-    padding: 10px;
+    width: 50%;
+    padding: 15px 20px;
     border: 1px solid #000000;
     font-size: 30px;
 }
-.user-page {
-    padding: 20px;
-  }
-  
-  .user-page h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  .user-page ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .user-page li {
-    margin-bottom: 10px;
-  }
-  
-  .user-page button {
+.userDiv button{
     margin-left: 10px;
     padding: 5px 10px;
     background-color: red;
     color: white;
     border: none;
     cursor: pointer;
-  }
-  
-  .user-page button:hover {
-    background-color: darkred;
-  }
+    font-size: 20px;
+}
