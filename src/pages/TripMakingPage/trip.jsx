@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './trip.css'
 import NavBar from '../../components/NavBar/navbar'
+import axios from 'axios';
 
 function trip() {
 
@@ -13,35 +14,67 @@ function trip() {
     const [arrivalTime, setArrivalTime] = useState('')
     const [price, setPrice] = useState('')
     const [bus, setBus] = useState('')
-
+    const [locations, setLocations] = useState([]);
 
     useEffect(()=>{
-
+      axios.get(`${BASE_URL}/getcities`)
+      .then((response)=>{
+        setLocations(response.data.cities);
+      })
     },[])
+
+    const handleSubmit = (e) => {
+      e.preventDefault()
+      axios.post(`${BASE_URL}/createtrip`, {
+        from: from,
+        to: to,
+        date: date,
+        departure_time: departureTime,
+        arrival_time: arrivalTime,
+        price: price,
+        bus_id: bus
+      })
+      .then((response)=>{
+        console.log(response.data)
+      })
+    }
+
 
   return (
     <div className='trip-container'>
     <NavBar/>
 
     <h1>Make a Trip</h1>
-    <form className='trip-form'>
+    <form className='trip-form' onSubmit={handleSubmit}>
         <div className='form-group'>
           <label htmlFor='from'>From:</label>
-          <input
-            type='text'
+          <select
             id='from'
             value={from}
             onChange={(e) => setFrom(e.target.value)}
-          />
+          >
+            <option value=''>Select a location</option>
+            {locations.map(location => (
+              <option key={location.id} value={location.city}>
+                {location.city}
+              </option>
+            ))}
+          </select>
         </div>
         <div className='form-group'>
           <label htmlFor='to'>To:</label>
-          <input
-            type='text'
+          <select
             id='to'
             value={to}
             onChange={(e) => setTo(e.target.value)}
-          />
+          >
+            <option value=''>Select a location</option>
+            {locations.map(location => (
+              <option key={location.id} value={location.city}>
+                {location.city}
+              </option>
+            ))}
+          </select>
         </div>
         <div className='form-group'>
           <label htmlFor='date'>Date:</label>
@@ -58,7 +91,7 @@ function trip() {
             type='time'
             id='departureTime'
             value={departureTime}
-            onChange={(e) => setDepartureTime(e.target.value)}
+            onChange={(e) => {setDepartureTime(e.target.value); console.log(departureTime)}}
           />
         </div>
         <div className='form-group'>

@@ -48,3 +48,8 @@
   button:hover {
     background-color: #0056b3;
   }
+  #from , #to{
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+  }
