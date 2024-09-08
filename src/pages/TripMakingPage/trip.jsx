@@ -1,8 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './trip.css'
 import NavBar from '../../components/NavBar/navbar'
 
 function trip() {
+
+    const BASE_URL = import.meta.env.VITE_BASE_URL;
+
     const [from, setFrom] = useState('')
     const [to, setTo] = useState('')
     const [date, setDate] = useState('')
@@ -10,6 +13,12 @@ function trip() {
     const [arrivalTime, setArrivalTime] = useState('')
     const [price, setPrice] = useState('')
     const [bus, setBus] = useState('')
+
+
+    useEffect(()=>{
+
+    },[])
+
   return (
     <div className='trip-container'>
     <NavBar/>
