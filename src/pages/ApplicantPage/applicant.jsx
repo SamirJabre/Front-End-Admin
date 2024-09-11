@@ -1,8 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './applicant.css'
 import NavBar from '../../components/NavBar/navbar'
+import { useLocation } from 'react-router-dom';
+
 
 function applicant() {
+
+  const location = useLocation();
+  const { application } = location.state || {};
+
+
+  console.log(application);
+  
+
   return (
     <div className='applicantPageContainer'>
     <NavBar/>
@@ -11,16 +21,16 @@ function applicant() {
     </div>
 
     <div className='applicant_info'>
-        <p id='info'>Name : Nabil</p>
-        <p id='info'>Email : </p>
+        <p id='info'>Name : {application.name}</p>
+        <p id='info'>Email : {application.email}</p>
         <p id='info'>Age : 30</p>
-        <p id='info'>Phone Number : </p>
-        <p id='info' className='address'>Address : </p>
+        <p id='info'>Phone Number : {application.phone_number}</p>
+        <p id='info' className='address'>Address : {application.address}</p>
     </div>
 
     <div className='documents'>
-    <img src='https://img.freepik.com/free-vector/hand-drawn-driving-license-template_23-2150020441.jpg?w=740&t=st=1726046425~exp=1726047025~hmac=8d3eefa42ccdbe6b17395c38fa70bd586587e1fbe31182841a685286051dd326' id='documents'/>
-    <img src='https://img.freepik.com/free-vector/hand-drawn-driving-license-template_23-2150020441.jpg?w=740&t=st=1726046425~exp=1726047025~hmac=8d3eefa42ccdbe6b17395c38fa70bd586587e1fbe31182841a685286051dd326' id='documents'/>
+    <img src={application.driver_license} id='documents'/>
+    <img src={application.id_photo} id='documents'/>
     </div>
 
     <div className='btns'>
