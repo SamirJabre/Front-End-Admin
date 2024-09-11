@@ -4,8 +4,8 @@ import './application.css'
 
 function application() {
   return (
-    <div className='application-container'>
-
+    <div className='applicationContainer'>
+    <NavBar/>
     </div>
   )
 }
