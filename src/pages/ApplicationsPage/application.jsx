@@ -3,7 +3,9 @@ import NavBar from '../../components/NavBar/navbar'
 
 function application() {
   return (
-    <div>application</div>
+    <div className='application-container'>
+
+    </div>
   )
 }
 
