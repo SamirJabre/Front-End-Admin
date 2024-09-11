@@ -3,6 +3,7 @@ import Login from './pages/LoginPage/login';
 import Dashboard from './pages/DashboardPage/dashboard';
 import UsersPage from './pages/UsersPage/userpage';
 import Trip from './pages/TripMakingPage/trip';
+import Application from './pages/ApplicationsPage/application';
 import { useState } from 'react';
 
 
