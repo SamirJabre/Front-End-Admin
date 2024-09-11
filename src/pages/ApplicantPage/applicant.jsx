@@ -24,8 +24,8 @@ function applicant() {
     </div>
 
     <div className='btns'>
-        <button id='accept'>Accept</button>
         <button id='reject'>Reject</button>
+        <button id='accept'>Accept</button>
     </div>
 
     </div>

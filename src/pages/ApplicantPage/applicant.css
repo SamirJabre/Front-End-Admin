@@ -39,6 +39,7 @@
     background-color: aqua;
     width: 100%;
     height: 100px;
+    overflow: hidden;
 }
 .documents{
     display: flex;
@@ -56,4 +57,21 @@
     display: flex;
     justify-content: space-between;
     margin: 20px;
+    width: 50%;
+}
+#accept{
+    background-color: green;
+    color: white;
+    padding: 20px 30px;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+#reject{
+    background-color: red;
+    color: white;
+    padding: 20px 30px;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
 }
