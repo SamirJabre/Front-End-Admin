@@ -34,7 +34,17 @@ function applicant() {
     }
   }
 
-
+  const handleReject = async () => {
+    try{
+      await axios.post(`${BASE_URL}/reject-app`, {
+        id: application.id,
+        })
+        .then((res) => navigate('/drivers-applications') )
+    }
+    catch (error) {
+      console.error('Error rejectiono application:', error);
+    }
+  }
   
 
 
