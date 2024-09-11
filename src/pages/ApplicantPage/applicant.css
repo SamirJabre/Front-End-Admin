@@ -34,6 +34,8 @@
 #info{
     font-size: 20px;
     margin: 10px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 .address{
     background-color: aqua;
