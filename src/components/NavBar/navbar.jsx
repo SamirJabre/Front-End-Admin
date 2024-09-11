@@ -15,6 +15,9 @@ const Navbar = () => {
         <li className="navbar-item">
           <Link to="/drivers-applications" className="navbar-link">Drivers Applications</Link>
         </li>
+        <li className="navbar-item">
+          <Link to="/assign-driver" className="navbar-link">Assign Driver</Link>
+        </li>
       </ul>
     </nav>
   );
