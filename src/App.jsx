@@ -16,6 +16,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard adminInfo={adminInfo}/>} />
         <Route path="/users" element={<UsersPage/>} />
         <Route path="/make-trip" element={<Trip/>} />
+        <Route path="/drivers-applications" element={<Application/>} />
       </Routes>
     </BrowserRouter>
   )
