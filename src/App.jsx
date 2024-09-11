@@ -4,6 +4,7 @@ import Dashboard from './pages/DashboardPage/dashboard';
 import UsersPage from './pages/UsersPage/userpage';
 import Trip from './pages/TripMakingPage/trip';
 import Application from './pages/ApplicationsPage/application';
+import Applicant from './pages/ApplicantPage/applicant';
 import { useState } from 'react';
 
 
@@ -17,6 +18,7 @@ function App() {
         <Route path="/users" element={<UsersPage/>} />
         <Route path="/make-trip" element={<Trip/>} />
         <Route path="/drivers-applications" element={<Application/>} />
+        <Route path="/application" element={<Applicant/>} />
       </Routes>
     </BrowserRouter>
   )
