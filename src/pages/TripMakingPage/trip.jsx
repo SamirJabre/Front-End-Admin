@@ -25,18 +25,23 @@ function trip() {
 
     const handleSubmit = (e) => {
       e.preventDefault()
-      axios.post(`${BASE_URL}/createtrip`, {
-        from: from,
-        to: to,
-        date: date,
-        departure_time: departureTime,
-        arrival_time: arrivalTime,
-        price: price,
-        bus_id: bus
-      })
-      .then((response)=>{
-        console.log(response.data)
-      })
+      try{
+        axios.post(`${BASE_URL}/createtrip`, {
+          from: from,
+          to: to,
+          date: date,
+          departure_time: departureTime,
+          arrival_time: arrivalTime,
+          price: price,
+          bus_id: bus
+        })
+        .then((response)=>{
+          console.log(response.data)
+        })
+      }
+      catch(err){
+        console.log('err')
+      } 
     }
 
 
@@ -100,7 +105,7 @@ function trip() {
             type='time'
             id='arrivalTime'
             value={arrivalTime}
-            onChange={(e) => setArrivalTime(e.target.value)}
+            onChange={(e) => {setArrivalTime(e.target.value); console.log(arrivalTime)}}
           />
         </div>
         <div className='form-group'>
@@ -115,7 +120,7 @@ function trip() {
         <div className='form-group'>
           <label htmlFor='bus'>Assign to Bus #:</label>
           <input
-            type='text'
+            type='number'
             id='bus'
             value={bus}
             onChange={(e) => setBus(e.target.value)}

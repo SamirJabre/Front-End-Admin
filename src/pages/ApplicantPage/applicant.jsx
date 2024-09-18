@@ -22,6 +22,7 @@ function applicant() {
         email: application.email,
         password: application.password,
         phone_number: application.phone_number,
+        age: application.age,
         profile_picture: application.profile_picture,
         address: application.address,
         id_photo: application.id_photo,

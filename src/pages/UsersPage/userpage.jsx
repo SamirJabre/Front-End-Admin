@@ -6,10 +6,15 @@ import Navbar from '../../components/NavBar/navbar';
 function userpage() {
   const BASE_URL = import.meta.env.VITE_BASE_URL;
   const [users, setUsers] = useState([]);
+  const [token, setToken] = useState(localStorage.getItem('token'));
 
   useEffect(() => {
     
-    axios.get(`${BASE_URL}/getusers`)
+    axios.get(`${BASE_URL}/getAllUsers` , {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        } 
+    })
       .then(response => {
         setUsers(response.data.users);
         console.log(response.data.users);
